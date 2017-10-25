@@ -5,7 +5,7 @@ import os
 import sys
 import dropbox
 
-ACCESS_TOKEN = os.environ['ACCESS_TOKEN_DROPBOX']
+ACCESS_TOKEN = os.environ['<ACCESS_TOKEN_DROPBOX>']
 CHUNK_SIZE = 4 * 1024 * 1024
 
 def upload_common_file(dbx, file_path, dest_path):
