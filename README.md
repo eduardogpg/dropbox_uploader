@@ -1,9 +1,9 @@
-###Dropbox Uploader
+## Dropbox Uploader
 
 Dropbox uploader is a Python __script__ wich can be used to upload any kind of file to DropBox.
 This sript does work with the API v2.
 
-###Getting started
+## Getting started
 
 First, clone the repository using git:
 
@@ -21,7 +21,7 @@ install DropBox, using:
 pip install dropbox
 ```
 
-###Usage
+## Usage
 
 ```
 python dropbox_uploader.py path_file
@@ -32,3 +32,11 @@ python dropbox_uploader.py path_file dest_path
 ```
 
 > If we dont especify the dest_path the default will be the same route (path_file)
+
+### Developer
+@eduardo_gpg
+
+License
+----
+
+MIT
