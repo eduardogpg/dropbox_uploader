@@ -16,7 +16,7 @@ def upload_big_file(dbx, file_path, dest_path, file_size):
   file = open(file_path)
   upload_session_start_result = dbx.files_upload_session_start(file.read(CHUNK_SIZE))
   cursor = dropbox.files.UploadSessionCursor(session_id=upload_session_start_result.session_id,
-                                                    offset= file.tell())
+                                              offset= file.tell())
         
   commit = dropbox.files.CommitInfo(path=dest_path)
   while file.tell() < file_size:
@@ -33,7 +33,6 @@ def upload_file(file_path, dest_path=''):
     raise Exception("File {} does not exist".format(file_path))
 
   file_size = os.path.getsize(file_path)
-  dest_path = dest_path if dest_path else "/{}".format(file_path)
   dbx = dropbox.Dropbox(ACCESS_TOKEN)
 
   if file_size <= CHUNK_SIZE:
@@ -47,5 +46,7 @@ if __name__ == '__main__':
   if len(sys.argv) == 1:
     print("It`s necessary to specify the file to upload.")
 
-  dest_path = '' if len(sys.argv) == 2 else sys.argv[2]
-  upload_file(sys.argv[1], dest_path)
+  if len(sys.argv) == 2:
+    print("It`s necessary to specify the destination of the file.")
+
+  upload_file(sys.argv[1], sys.argv[2])
